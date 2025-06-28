@@ -1,0 +1,263 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeSystem.cmake"
+		},
+		{
+			"path" : "conan_android_toolchain.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/conan_toolchain.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/28.0.12674087/build/cmake/android.toolchain.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/28.0.12674087/build/cmake/android-legacy.toolchain.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/abis.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/platforms.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android-Initialize.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/hooks/pre/Android-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/arm64-v8a/CMakeFiles/3.22.1-g37088a8-dirty/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/hooks/pre/Android.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Linux.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android-Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android-Clang.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/hooks/pre/Android-Clang.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/build/cmake/flags.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android-Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/Platform/Android-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "src/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/SDL3/SDL3ConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/SDL3/SDL3Config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/jsoncpp/jsoncppConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/prefab/arm64-v8a/prefab/lib/aarch64-linux-android/cmake/jsoncpp/jsoncppConfig.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/BulletConfigVersion.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/BulletConfig.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/BulletTargets.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/Bullet-debug-armv8-data.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/Bullet-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/.conan2/p/b/bulle7c242240b1684/p/lib/cmake/bullet/conan-official-bullet3-variables.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/ZLIBConfigVersion.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/ZLIBConfig.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/cmakedeps_macros.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/ZLIBTargets.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/ZLIB-debug-armv8-data.cmake"
+		},
+		{
+			"path" : "build/armv8/Debug/generators/ZLIB-Target-debug.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/cmake/3.22.1/share/cmake-3.22/Modules/CMakeFindDependencyMacro.cmake"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/2w542n3c/arm64-v8a",
+		"source" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/jni"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

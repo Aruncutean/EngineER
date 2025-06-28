@@ -1,0 +1,6 @@
+# ninja log v5
+6	185	7726451603590973	src/CMakeFiles/main.dir/YourSourceHere.cpp.o	cf7ad74ab8e0ecfb
+0	15	0	clean	eb3fda99580defed
+186	327	7726451604963819	C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/build/intermediates/cxx/Debug/3n2g5v3q/obj/arm64-v8a/libmain.so	5ea8cf2c77dbae68
+2	134	7727468224948727	build.ninja	e01e1a34ffc372eb
+0	11	0	clean	eb3fda99580defed

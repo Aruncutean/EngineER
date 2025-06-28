@@ -1,0 +1,8 @@
+{
+  "enabled": true,
+  "prefabPath": "C:\\Users\\arunc\\.gradle\\caches\\modules-2\\files-2.1\\com.google.prefab\\cli\\2.1.0\\aa32fec809c44fa531f01dcfb739b5b3304d3050\\cli-2.1.0-all.jar",
+  "packages": [
+    "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\37fceea904773f369bf9944e947ca5fd\\transformed\\SDL3-3.2.16\\prefab",
+    "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\a0a243a0ac75b055471ae0c212ec7766\\transformed\\jsoncpp-1.9.6\\prefab"
+  ]
+}

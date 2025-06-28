@@ -1,0 +1,1 @@
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\build\intermediates\cxx\Debug\3t4q1515\obj\x86_64

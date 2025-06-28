@@ -1,0 +1,7 @@
+# ninja log v5
+0	303	7728035282908146	src/CMakeFiles/main.dir/YourSourceHere.cpp.o	95f99ce2c2ba7524
+2	136	7728075021516949	C:/Users/arunc/Desktop/Engine Project/Engine/runtime-android/app/build/intermediates/cxx/Debug/3n2g5v3q/obj/x86_64/libmain.so	8d5fbca88252cdfb
+3	126	7728075761981490	C:/Users/arunc/Desktop/Engine Project/Engine/runtime-android/app/build/intermediates/cxx/Debug/3n2g5v3q/obj/x86_64/libmain.so	31ea49f35f21e8ad
+0	8	0	clean	eb3fda99580defed
+3	143	7728076075035552	src/CMakeFiles/main.dir/YourSourceHere.cpp.o	95f99ce2c2ba7524
+143	261	7728076076159402	C:/Users/arunc/Desktop/Engine Project/Engine/runtime-android/app/build/intermediates/cxx/Debug/3n2g5v3q/obj/x86_64/libmain.so	31ea49f35f21e8ad

@@ -1,0 +1,8 @@
+# ninja log v5
+3	148	7728080315055763	src/CMakeFiles/main.dir/YourSourceHere.cpp.o	47606d22fb99a157
+149	265	7728080316153061	C:/Users/arunc/Desktop/Engine Project/Engine/runtime-android/app/build/intermediates/cxx/Debug/2595l82c/obj/x86_64/libmain.so	1954ce255633bdba
+0	9	0	clean	eb3fda99580defed
+6	195	7728144327664853	src/CMakeFiles/main.dir/YourSourceHere.cpp.o	47606d22fb99a157
+196	352	7728144329192518	C:/Users/arunc/Desktop/Engine Project/Engine/runtime-android/app/build/intermediates/cxx/Debug/2595l82c/obj/x86_64/libmain.so	1954ce255633bdba
+0	12	0	clean	eb3fda99580defed
+1	18	0	clean	eb3fda99580defed

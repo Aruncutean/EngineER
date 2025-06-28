@@ -1,0 +1,32 @@
+{
+  "buildFiles": [
+    "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\jni\\build\\x86_64\\Debug\\generators\\conan_toolchain.cmake",
+    "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\jni\\CMakeLists.txt",
+    "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\jni\\conan_android_toolchain.cmake",
+    "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\jni\\src\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\.cxx\\Debug\\3n2g5v3q\\x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\.cxx\\Debug\\3n2g5v3q\\x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "main::@145eef247bfb46b6828c": {
+      "artifactName": "main",
+      "abi": "x86_64",
+      "output": "C:\\Users\\arunc\\Desktop\\Engine Project\\Engine\\runtime-android\\app\\build\\intermediates\\cxx\\Debug\\3n2g5v3q\\obj\\x86_64\\libmain.so",
+      "runtimeFiles": [
+        "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\37fceea904773f369bf9944e947ca5fd\\transformed\\SDL3-3.2.16\\prefab\\modules\\SDL3-shared\\libs\\android.x86_64\\libSDL3.so"
+      ]
+    }
+  }
+}

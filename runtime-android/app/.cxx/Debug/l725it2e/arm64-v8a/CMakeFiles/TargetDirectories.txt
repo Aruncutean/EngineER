@@ -1,0 +1,5 @@
+C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/l725it2e/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/l725it2e/arm64-v8a/CMakeFiles/rebuild_cache.dir
+C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/l725it2e/arm64-v8a/src/CMakeFiles/main.dir
+C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/l725it2e/arm64-v8a/src/CMakeFiles/edit_cache.dir
+C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/.cxx/Debug/l725it2e/arm64-v8a/src/CMakeFiles/rebuild_cache.dir

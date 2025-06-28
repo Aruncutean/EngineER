@@ -1,0 +1,222 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "C:/Users/arunc/Desktop/SDL-release-3.2.16/android-project/app/build/intermediates/cxx/Debug/2w542n3c/obj/x86_64/libmain.so"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"target_link_libraries"
+		],
+		"files" : 
+		[
+			"src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 10,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 13,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : "-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security  -fno-limit-debug-info  -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"define" : "main_EXPORTS"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.gradle/caches/8.13/transforms/37fceea904773f369bf9944e947ca5fd/transformed/SDL3-3.2.16/prefab/modules/SDL3/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.gradle/caches/8.13/transforms/37fceea904773f369bf9944e947ca5fd/transformed/SDL3-3.2.16/prefab/modules/SDL3-shared/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.gradle/caches/8.13/transforms/37fceea904773f369bf9944e947ca5fd/transformed/SDL3-3.2.16/prefab/modules/Headers/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.gradle/caches/8.13/transforms/37fceea904773f369bf9944e947ca5fd/transformed/SDL3-3.2.16/prefab/modules/SDL3-Headers/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.gradle/caches/8.13/transforms/a0a243a0ac75b055471ae0c212ec7766/transformed/jsoncpp-1.9.6/prefab/modules/jsoncpp/libs/android.x86_64/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.conan2/p/b/bulle4928fbde6498d/p/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.conan2/p/b/bulle4928fbde6498d/p/include/bullet"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "C:/Users/arunc/.conan2/p/b/zlibce40368fa6fc1/p/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0
+			],
+			"sysroot" : 
+			{
+				"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/sysroot"
+			}
+		}
+	],
+	"id" : "main::@145eef247bfb46b6828c",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-static-libstdc++ -Wl,--build-id=sha1 -Wl,--no-rosegment -Wl,--no-undefined-version -Wl,--fatal-warnings -Wl,--no-undefined -Qunused-arguments",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LC:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "-LC:\\Users\\arunc\\.conan2\\p\\b\\zlibce40368fa6fc1\\p\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\a0a243a0ac75b055471ae0c212ec7766\\transformed\\jsoncpp-1.9.6\\prefab\\modules\\jsoncpp\\libs\\android.x86_64\\libjsoncpp.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\37fceea904773f369bf9944e947ca5fd\\transformed\\SDL3-3.2.16\\prefab\\modules\\SDL3-shared\\libs\\android.x86_64\\libSDL3.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet3OpenCL_clew.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet3Dynamics.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet3Collision.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet3Geometry.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet2FileLoader.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBulletSoftBody.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBulletDynamics.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBulletCollision.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBulletInverseDynamics.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libLinearMath.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\bulle4928fbde6498d\\p\\lib\\libBullet3Common.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "C:\\Users\\arunc\\.conan2\\p\\b\\zlibce40368fa6fc1\\p\\lib\\libz.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-latomic -lm",
+				"role" : "libraries"
+			}
+		],
+		"language" : "C",
+		"sysroot" : 
+		{
+			"path" : "C:/Users/arunc/AppData/Local/Android/Sdk/ndk/27.0.12077973/toolchains/llvm/prebuilt/windows-x86_64/sysroot"
+		}
+	},
+	"name" : "main",
+	"nameOnDisk" : "libmain.so",
+	"paths" : 
+	{
+		"build" : "src",
+		"source" : "src"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/YourSourceHere.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "SHARED_LIBRARY"
+}

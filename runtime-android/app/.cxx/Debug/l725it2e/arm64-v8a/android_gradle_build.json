@@ -1,0 +1,41 @@
+{
+  "buildFiles": [
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\CMakeLists.txt",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\src\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\.cxx\\Debug\\l725it2e\\arm64-v8a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\.cxx\\Debug\\l725it2e\\arm64-v8a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "main::@145eef247bfb46b6828c": {
+      "toolchain": "toolchain",
+      "abi": "arm64-v8a",
+      "artifactName": "main",
+      "output": "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\build\\intermediates\\cxx\\Debug\\l725it2e\\obj\\arm64-v8a\\libmain.so",
+      "runtimeFiles": [
+        "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\37fceea904773f369bf9944e947ca5fd\\transformed\\SDL3-3.2.16\\prefab\\modules\\SDL3-shared\\libs\\android.arm64-v8a\\libSDL3.so"
+      ]
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe",
+      "cppCompilerExecutable": "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\ndk\\27.0.12077973\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [
+    "c"
+  ],
+  "cppFileExtensions": []
+}

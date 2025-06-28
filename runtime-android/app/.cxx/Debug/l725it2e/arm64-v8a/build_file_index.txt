@@ -1,0 +1,2 @@
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\CMakeLists.txt
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\src\CMakeLists.txt

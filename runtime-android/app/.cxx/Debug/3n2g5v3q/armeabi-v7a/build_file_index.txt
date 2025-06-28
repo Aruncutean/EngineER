@@ -1,0 +1,4 @@
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\build\armv7\Debug\generators\conan_toolchain.cmake
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\CMakeLists.txt
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\conan_android_toolchain.cmake
+C:\Users\arunc\Desktop\SDL-release-3.2.16\android-project\app\jni\src\CMakeLists.txt

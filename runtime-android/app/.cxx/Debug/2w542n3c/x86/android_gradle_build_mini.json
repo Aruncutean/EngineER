@@ -1,0 +1,43 @@
+{
+  "buildFiles": [
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\Bullet-debug-x86-data.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\Bullet-Target-debug.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\BulletConfig.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\BulletConfigVersion.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\BulletTargets.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\cmakedeps_macros.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\conan_toolchain.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\ZLIB-debug-x86-data.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\ZLIB-Target-debug.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\ZLIBConfig.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\ZLIBConfigVersion.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\build\\x86\\Debug\\generators\\ZLIBTargets.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\CMakeLists.txt",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\conan_android_toolchain.cmake",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\jni\\src\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+      "-C",
+      "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\.cxx\\Debug\\2w542n3c\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\arunc\\AppData\\Local\\Android\\Sdk\\cmake\\3.22.1\\bin\\ninja.exe",
+    "-C",
+    "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\.cxx\\Debug\\2w542n3c\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "main::@145eef247bfb46b6828c": {
+      "artifactName": "main",
+      "abi": "x86",
+      "output": "C:\\Users\\arunc\\Desktop\\SDL-release-3.2.16\\android-project\\app\\build\\intermediates\\cxx\\Debug\\2w542n3c\\obj\\x86\\libmain.so",
+      "runtimeFiles": [
+        "C:\\Users\\arunc\\.gradle\\caches\\8.13\\transforms\\37fceea904773f369bf9944e947ca5fd\\transformed\\SDL3-3.2.16\\prefab\\modules\\SDL3-shared\\libs\\android.x86\\libSDL3.so"
+      ]
+    }
+  }
+}
