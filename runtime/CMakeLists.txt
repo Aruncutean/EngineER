@@ -8,10 +8,14 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../Core/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/include)
 
+
+
 if(WIN32)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/win64)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/win64)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../core)
+
+
 elseif(APPLE)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/macos/x64-osx)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/macos/x64-osx)
@@ -58,3 +62,16 @@ if(APPLE)
             ${CARBON_FRAMEWORK}
     )
 endif()
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/win64/SDL3.dll
+        $<TARGET_FILE_DIR:RunTime>
+)
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/win64/glad.lib
+        $<TARGET_FILE_DIR:RunTime>
+)
+

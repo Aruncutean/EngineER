@@ -3,7 +3,10 @@
 //
 
 #include "GameWindow.hpp"
+
+#include <cstdio>
 #include <glad/glad.h>
+#include <SDL3/SDL.h>
 
 void GameWindow::Init() {
     if (SDL_Init(SDL_INIT_VIDEO) == false) {
