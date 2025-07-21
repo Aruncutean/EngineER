@@ -20,8 +20,11 @@
 
 #include <vector>
 
+#include "component/View.hpp"
 #include "esc/process/Input.hpp"
+#include "service/ViewService.hpp"
 #include "service/WindowService.hpp"
+#include "windows/ImGuiStyleConfig.hpp"
 
 class MainWindow {
   public:
@@ -78,7 +81,7 @@ class MainWindow {
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-        ImGui::StyleColorsDark();
+        ApplyCustomImGuiStyle();
 
         ImGui_ImplSDL3_InitForOpenGL(window, gl_context);
         ImGui_ImplOpenGL3_Init("#version 330 core");
@@ -114,11 +117,13 @@ class MainWindow {
             ImGui_ImplSDL3_NewFrame();
             ImGui::NewFrame();
 
-            if (IsBockingSpace)
+            if (WindowService::getInstance()->IsBockingSpace)
                 ShowDockSpace();
 
-            for (auto& w : windows)
-                w->Render();
+            // for (auto& w : windows)
+            //     w->Render();
+
+            service_editor::ViewService::Instance().RenderViews();
 
             ImGui::Render();
 
@@ -214,8 +219,6 @@ private:
 
     SDL_Window* window = nullptr;
     SDL_GLContext gl_context = nullptr;
-
-
 
     std::string title;
     int width = 800;

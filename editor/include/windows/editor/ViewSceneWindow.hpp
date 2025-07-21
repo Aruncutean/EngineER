@@ -42,7 +42,6 @@ public:
 
 		_worldSystem->Update(WindowService::getInstance()->getDeltaTime());
 
-
 		bool isOpen = true;
 		UI::Window("#Scene Scene", isOpen, [&]()
 			{
@@ -54,7 +53,6 @@ public:
 				ImVec2 contentMin = ImGui::GetCursorScreenPos();
 				ImVec2 mousePos = ImGui::GetMousePos();
 				ImVec2 relativeMousePos = ImVec2(mousePos.x - contentMin.x, mousePos.y - contentMin.y);
-
 				Input::MouseMoveCall(glm::vec2(relativeMousePos.x, relativeMousePos.y));
 
 
@@ -129,7 +127,7 @@ public:
 					}
 					ImGui::EndPopup();
 				}
-			   ImGui::Text("Gizmo USING: %s", ImGuizmo::IsUsing() ? "YES" : "NO");
+
 				if (auto selectedEntity = Service::EditorService::Instance().GetSelectedEntity()) {
 					if (selectedEntity->HasComponent<Component::TransformComponent>()) {
 						auto transform = selectedEntity->GetComponent<Component::TransformComponent>();

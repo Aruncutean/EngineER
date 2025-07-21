@@ -20,6 +20,7 @@ namespace Service {
     public:
         Entity::Entity* create(std::string meshPath) {
             Entity::Entity* entity = new Entity::Entity();
+            entity->Name = checkName();
             entity->AddComponent<Component::MaterialComponent>();
             entity->AddComponent<Component::TransformComponent>();
             entity->AddComponent<Component::MeshComponent>();
@@ -36,6 +37,29 @@ namespace Service {
             meshComponent->meshPath = meshPath;
 
             return entity;
+        }
+
+        std::string checkName() {
+            int count = 0;
+            std::string name;
+            auto entities = AppContext::Instance().GetCurrentWorld().GetEntities();
+
+            while (true) {
+                name = (count == 0) ? "Entity" : "Entity" + std::to_string(count);
+                bool exists = false;
+
+                for (const auto& value : entities) {
+                    if (value->Name == name) {
+                        exists = true;
+                        break;
+                    }
+                }
+
+                if (!exists) break;
+                ++count;
+            }
+
+            return name;
         }
 
 

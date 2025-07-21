@@ -8,6 +8,7 @@
 
 #include <glm.hpp>
 #include "ComponentBase.hpp"
+#include <boost/property_tree/ptree.hpp>
 
 namespace Component {
 

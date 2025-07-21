@@ -14,13 +14,12 @@
 
 class AppContext {
 public:
-    static AppContext& Instance() {
+    static AppContext &Instance() {
         static AppContext instance;
         return instance;
     }
 
-
-    void SetCurrentProject(const Model::ProjectData& project) {
+    void SetCurrentProject(const Model::ProjectData &project) {
         currentProject = project;
     }
 
@@ -28,7 +27,7 @@ public:
         return currentProject.has_value();
     }
 
-    const Model::ProjectData& GetCurrentProject() const {
+    const Model::ProjectData &GetCurrentProject() const {
         if (!currentProject)
             throw std::runtime_error("No project loaded.");
         return *currentProject;
@@ -38,13 +37,13 @@ public:
         currentProject.reset();
     }
 
-    const Model::SceneData& GetCurrentScene() const {
+    const Model::SceneData &GetCurrentScene() const {
         if (!curentScene)
             throw std::runtime_error("No project loaded.");
         return *curentScene;
     }
 
-    void SetCurrentScene(const Model::SceneData& sceneData) {
+    void SetCurrentScene(const Model::SceneData &sceneData) {
         curentScene = sceneData;
     }
 
@@ -52,7 +51,7 @@ public:
         return curentScene.has_value();
     }
 
-    const Model::SceneData& GetCurrentScenePath() const {
+    const Model::SceneData &GetCurrentScenePath() const {
         if (!curentScene)
             throw std::runtime_error("No scene loaded.");
         return *curentScene;
@@ -62,30 +61,33 @@ public:
         curentScene.reset();
     }
 
-    void SetCurrentWorld(const World& sceneData) {
+    void SetCurrentWorld(const World &sceneData) {
         currentWorld = sceneData;
     }
 
-    World& GetCurrentWorld() {
+    World &GetCurrentWorld() {
         if (!currentWorld)
             throw std::runtime_error("No scene loaded.");
         return *currentWorld;
     }
 
     void AddNewEntity(std::shared_ptr<Entity::Entity> enity) {
-
         currentWorld->AddEntity(enity);
-        addEntity(enity);
+        for (const auto &callback : addEntity) {
+            callback(enity);
+        }
     }
 
-    std::function<void(std::shared_ptr<Entity::Entity>) > addEntity;
+    static std::vector<std::function<void(std::shared_ptr<Entity::Entity>)>> addEntity;
 
 private:
     AppContext() = default;
+
     ~AppContext() = default;
 
-    AppContext(const AppContext&) = delete;
-    AppContext& operator=(const AppContext&) = delete;
+    AppContext(const AppContext &) = delete;
+
+    AppContext &operator=(const AppContext &) = delete;
 
     std::optional<Model::ProjectData> currentProject;
     std::optional<Model::SceneData> curentScene;

@@ -7,13 +7,37 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../Core/include)
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/tinyfiledialogs/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glm)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3-image/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/bullet3/include)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/include)
 
-
+file(GLOB GLM_SRC
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/glm/*.hpp
+)
 
 if(WIN32)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/win64)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/win64)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/lib/win64)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/tinyfiledialogs/lib/win64)
+    link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3-image/lib/win64)
+
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../core)
+
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/debug)
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/debug)
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/bullet3/lib/win64/debug)
+    else()
+
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/release)
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/release)
+        link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/bullet3/lib/win64/release)
+    endif()
 
 
 elseif(APPLE)
@@ -39,9 +63,45 @@ elseif(APPLE)
     find_library(HID_FRAMEWORK HID)
 endif()
 
-add_executable(RunTime src/main.cpp)
+file(GLOB_RECURSE  FILE_SRC
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
 
-target_link_libraries(RunTime SDL3 Core glad)
+file(GLOB_RECURSE FILE_HEADERS
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
+)
+
+
+add_executable(RunTime  ${GLM_SRC}  ${FILE_SRC} ${FILE_HEADERS})
+
+target_link_libraries(RunTime
+        SDL3
+        SDL3_image
+        Core
+        glad
+        opengl32
+        tinyfiledialogs
+
+        $<$<CONFIG:Debug>:libfbxsdk.lib>
+        $<$<CONFIG:Release>:libfbxsdk.lib>
+
+        $<$<CONFIG:Debug>:boost_system-vc143-mt-gd-x64-1_86>
+        $<$<CONFIG:Release>:boost_system-vc143-mt-x64-1_86>
+
+        $<$<CONFIG:Debug>:boost_filesystem-vc143-mt-gd-x64-1_86>
+        $<$<CONFIG:Release>:boost_filesystem-vc143-mt-x64-1_86>
+
+        $<$<CONFIG:Debug>:BulletCollision_Debug>
+        $<$<CONFIG:Release>:BulletCollision>
+
+        $<$<CONFIG:Debug>:BulletDynamics_Debug>
+        $<$<CONFIG:Release>:BulletDynamics>
+
+        $<$<CONFIG:Debug>:LinearMath_Debug>
+        $<$<CONFIG:Release>:LinearMath>
+
+)
 
 if(APPLE)
 
@@ -63,15 +123,48 @@ if(APPLE)
     )
 endif()
 
+
 add_custom_command(TARGET RunTime POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/win64/SDL3.dll
-        $<TARGET_FILE_DIR:RunTime>
+        $<TARGET_FILE_DIR:Editor>
+)
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/tinyfiledialogs/lib/win64/tinyfiledialogs.lib
+        $<TARGET_FILE_DIR:Editor>
 )
 
 add_custom_command(TARGET RunTime POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         ${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/win64/glad.lib
-        $<TARGET_FILE_DIR:RunTime>
+        $<TARGET_FILE_DIR:Editor>
 )
 
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        ${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3-image/lib/win64/SDL3_image.lib
+        $<TARGET_FILE_DIR:Editor>
+)
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<$<CONFIG:Debug>:${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/debug/boost_system-vc143-mt-gd-x64-1_86.lib>
+        $<$<CONFIG:Release>:${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/release/boost_system-vc143-mt-x64-1_86.lib>
+        $<TARGET_FILE_DIR:Editor>
+)
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<$<CONFIG:Debug>:${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/debug/boost_filesystem-vc143-mt-gd-x64-1_86.lib>
+        $<$<CONFIG:Release>:${CMAKE_CURRENT_SOURCE_DIR}/../external/boost/lib/win64/release/boost_filesystem-vc143-mt-x64-1_86.lib>
+        $<TARGET_FILE_DIR:Editor>
+)
+
+add_custom_command(TARGET RunTime POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E copy_if_different
+        $<$<CONFIG:Debug>:${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/debug/libfbxsdk.dll>
+        $<$<CONFIG:Release>:${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/release/libfbxsdk.dll>
+        $<TARGET_FILE_DIR:Editor>
+)

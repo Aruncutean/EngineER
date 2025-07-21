@@ -13,7 +13,7 @@
 #include "AssetsWindow.hpp"
 #include "ViewSceneWindow.hpp"
 #include "EditWindow.hpp"
-#include "MaterialEditorWindow.hpp"
+
 #include "esc/component/ComponentFactory.hpp"
 #include "service/ProjectService.hpp"
 
@@ -22,14 +22,12 @@ class EditorWindow : public Window, public std::enable_shared_from_this<EditorWi
 public:
 	EditorWindow(MainWindow* host) : host(host) {
 		host->IsBockingSpace = true;
-
-
 		RegisterAllComponents();
 
 		assetsWindow = new AssetsWindow(host);
 		viewSceneWindow = new ViewSceneWindow(host);
 		editWindow = new EditWindow(host);
-		materialEditorWindow = new MaterialEditorWindow();
+
 	}
 
 	void RegisterAllComponents() {
@@ -101,7 +99,7 @@ public:
 		assetsWindow->Render();
 		viewSceneWindow->Render();
 		editWindow->Render();
-		materialEditorWindow->Render();
+
 
 	}
 
@@ -111,7 +109,7 @@ private:
 	AssetsWindow* assetsWindow = nullptr;
 	ViewSceneWindow* viewSceneWindow = nullptr;
 	EditWindow* editWindow = nullptr;
-	MaterialEditorWindow* materialEditorWindow = nullptr;
+
 };
 
 #endif //EDITORWINDOW_HPP

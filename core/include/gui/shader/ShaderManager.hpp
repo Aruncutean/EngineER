@@ -21,7 +21,7 @@ public:
 
 	static void LoadShaders() {
 		Load(ShaderType::Basic, "shader/basic.vert", "shader/basic.frag");
-		// Load(ShaderType::Gizmo, "shader/gizmo.vert", "shader/gizmo.frag");
+		Load(ShaderType::Gizmo, "shader/gizmo.vert", "shader/gizmo.frag");
 		Load(ShaderType::PBR, "shader/pbr.vert", "shader/pbr.frag");
 		Load(ShaderType::Phong, "shader/phong.vert", "shader/phong.frag");
 		Load(ShaderType::SkyAtmosphere, "shader/SkyAtmosphere/sky.vert", "shader/SkyAtmosphere/sky.frag");

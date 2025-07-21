@@ -126,6 +126,16 @@ namespace Service {
 			return true;
 		}
 
+		void renameAsset(const std::string& id, const std::string& newName) {
+			auto it = std::find_if(assets.begin(), assets.end(), [&](const Model::AssetItem& asset) { return asset.id == id; });
+			if (it != assets.end()) {
+				it->name = newName;
+				save();
+			} else {
+				std::cerr << "Asset with ID " << id << " not found." << std::endl;
+			}
+		}
+
 		Model::AssetItem SaveMesh(const Model::MeshData& meshData, const std::string& importPath, const std::string& relativePath) {
 			auto project = AppContext::Instance().GetCurrentProject();
 			if (project.path.empty()) {

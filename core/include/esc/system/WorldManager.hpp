@@ -27,174 +27,166 @@
 
 class WorldManager {
 public:
-	WorldManager(const std::string& path)
-		: projectPath(path)
-	{
-		Init();
-	}
+    WorldManager(const std::string &path)
+        : projectPath(path) {
+        Init();
+    }
 
-	void Init() {
-		ShaderManager::LoadShaders();
+    void Init() {
+        ShaderManager::LoadShaders();
 
-		cameraEntity = std::make_shared<Entity::Entity>();
-		cameraEntity->AddComponent<Component::TransformComponent>();
-		cameraEntity->AddComponent<Component::CameraComponent>();
-		cameraEntity->AddComponent<Component::CameraControllerComponent>();
+        cameraEntity = std::make_shared<Entity::Entity>();
+        cameraEntity->AddComponent<Component::TransformComponent>();
+        cameraEntity->AddComponent<Component::CameraComponent>();
+        cameraEntity->AddComponent<Component::CameraControllerComponent>();
 
-		cameraEntity->GetComponent<Component::TransformComponent>()->position = glm::vec3(0, 5, 10);
-		cameraEntity->GetComponent<Component::CameraComponent>()->up = glm::vec3(0, 1, 0);
+        cameraEntity->GetComponent<Component::TransformComponent>()->position = glm::vec3(0, 5, 10);
+        cameraEntity->GetComponent<Component::CameraComponent>()->up = glm::vec3(0, 1, 0);
 
-		renderSystem = std::make_unique<System::RenderSystem>();
-		renderSystem->cameraEntity = cameraEntity;
+        renderSystem = std::make_unique<System::RenderSystem>();
+        renderSystem->cameraEntity = cameraEntity;
 
-		Service::EditorService::Instance().setEditorCamera(cameraEntity.get());
+        Service::EditorService::Instance().setEditorCamera(cameraEntity.get());
 
-		cameraController = std::make_shared<System::CameraControllerSystem>(cameraEntity);
-		cameraController->InitCallbacks();
-		physicsSysyem = std::make_shared<System::PhysicsSystem>();
-		physicsSysyem->InitCallbacks();
+        cameraController = std::make_shared<System::CameraControllerSystem>(cameraEntity);
+        cameraController->InitCallbacks();
+        physicsSysyem = std::make_shared<System::PhysicsSystem>();
+        physicsSysyem->InitCallbacks();
 
-		frameBuffer = std::make_unique<FrameBuffer>(
-			500,
-			1200
-		);
+        frameBuffer = std::make_unique<FrameBuffer>(
+            500,
+            1200
+        );
 
-		terrainSystem = std::make_shared<System::TerrainSystem>();
-
-
-		skyAtmosphereSystem = std::make_shared<System::SkyAtmosphereSystem>();
-		skyAtmosphereSystem->Load();
-
-		glEnable(GL_DEPTH_TEST);
-		glEnable(GL_MULTISAMPLE);
-		glEnable(GL_BLEND);
-		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
-		AppContext::Instance().addEntity = [this](std::shared_ptr<Entity::Entity> entity) {
-			physicsSysyem->AddPhysicsBody(entity);
-			};
-	}
-
-	void Resize(int width, int height) {
-		if (frameBuffer)
-			frameBuffer->Resize(width, height);
-	}
-
-	void LoadWorld(const Model::SceneInfo& info) {
-		std::string path = projectPath + "/scenes/" + info.path;
-		currentWorld = std::make_shared<World>(SceneSerializer::LoadScene(path));
-		//terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
-		AppContext::Instance().SetCurrentWorld(*currentWorld);
-		InitPhysics();
-	}
-
-	void LoadWorld(const std::string& path) {
-		currentWorld = std::make_shared<World>(SceneSerializer::LoadScene(path));
-		//terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
-		AppContext::Instance().SetCurrentWorld(*currentWorld);
-		InitPhysics();
-
-	}
-
-	void LoadWorld(std::shared_ptr<World> world) {
-		currentWorld = world;
-		//terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
-		AppContext::Instance().SetCurrentWorld(*currentWorld);
-		InitPhysics();
-	}
-
-	void Update(float deltaTime) {
-		if (cameraController && currentWorld) {
-
-			glm::vec3 camPos = cameraEntity->GetComponent<Component::TransformComponent>()->position;
-			//	terrainSystem->Update(camPos);
-			//	terrainSystem->ProcessPendingLODs(1550);
-			cameraController->Update(deltaTime);
-
-		}
-	}
-
-	void InitPhysics() {
-		if (physicsSysyem) {
-			for (const auto& entity : currentWorld.get()->GetEntities()) {
-				physicsSysyem->AddPhysicsBody(entity);
-			}
-		}
-	}
-
-	void Render(float deltaTime) {
-		auto renderScene = [&]() {
-			glClearColor(0.247f, 0.247f, 0.247f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-			glDisable(GL_DEPTH_TEST);
+        terrainSystem = std::make_shared<System::TerrainSystem>();
 
 
-			if (skyAtmosphereSystem) {
-				auto transform = cameraEntity->GetComponent<Component::TransformComponent>();
-				auto cameraComp = cameraEntity->GetComponent<Component::CameraComponent>();
+        skyAtmosphereSystem = std::make_shared<System::SkyAtmosphereSystem>();
+        skyAtmosphereSystem->Load();
 
-				skyAtmosphereSystem->Render(
-					Service::EditorService::Instance().getView(),
-					Service::EditorService::Instance().getProjection(),
-					transform->position,
-					glm::vec3(0, 1, -1)
-				);
-			}
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_MULTISAMPLE);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
-			glEnable(GL_DEPTH_TEST);
+        AppContext::Instance().addEntity.push_back([this](std::shared_ptr<Entity::Entity> entity) {
+                physicsSysyem->AddPhysicsBody(entity);
+            }
+        );
+    }
 
-			if (currentWorld) {
+    void Resize(int width, int height) {
+        if (frameBuffer)
+            frameBuffer->Resize(width, height);
+    }
 
+    void LoadWorld(const Model::SceneInfo &info) {
+        std::string path = projectPath + "/scenes/" + info.path;
+        currentWorld = std::make_shared<World>(SceneSerializer::LoadScene(path));
+        //terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
+        AppContext::Instance().SetCurrentWorld(*currentWorld);
+        InitPhysics();
+    }
 
+    void LoadWorld(const std::string &path) {
+        currentWorld = std::make_shared<World>(SceneSerializer::LoadScene(path));
+        //terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
+        AppContext::Instance().SetCurrentWorld(*currentWorld);
+        InitPhysics();
+    }
 
-				auto currentWorldPath = AppContext::Instance().GetCurrentWorld();
+    void LoadWorld(std::shared_ptr<World> world) {
+        currentWorld = world;
+        //terrainSystem->Load(projectPath + '/' + currentWorld.get()->GeTerrainPath(), 1.0f, 20.0f, 16);
+        AppContext::Instance().SetCurrentWorld(*currentWorld);
+        InitPhysics();
+    }
 
-				if (physicsSysyem) {
-					physicsSysyem->Step(&currentWorldPath, deltaTime);
-				}
+    void Update(float deltaTime) {
+        if (cameraController && currentWorld) {
+            glm::vec3 camPos = cameraEntity->GetComponent<Component::TransformComponent>()->position;
+            //	terrainSystem->Update(camPos);
+            //	terrainSystem->ProcessPendingLODs(1550);
+            cameraController->Update(deltaTime);
+        }
+    }
 
-				if (renderSystem) {
-					renderSystem->Render(&currentWorldPath, WindowService::getInstance()->getWidth(),
-						WindowService::getInstance()->getHeight());
-				}
+    void InitPhysics() {
+        if (physicsSysyem) {
+            for (const auto &entity: currentWorld.get()->GetEntities()) {
+                physicsSysyem->AddPhysicsBody(entity);
+            }
+        }
+    }
 
-				/*if (terrainSystem)
-				{
-					glm::vec3 camPos = cameraEntity->GetComponent<Component::TransformComponent>()->position;
-					terrainSystem->Render(Service::EditorService::Instance().getView(), Service::EditorService::Instance().getProjection(), camPos);
-				}*/
+    void Render(float deltaTime) {
+        auto renderScene = [&]() {
+            glClearColor(0.247f, 0.247f, 0.247f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-			}
-			};
+            // glDisable(GL_DEPTH_TEST);
+            //
+            //
+            // if (skyAtmosphereSystem) {
+            //     auto transform = cameraEntity->GetComponent<Component::TransformComponent>();
+            //     auto cameraComp = cameraEntity->GetComponent<Component::CameraComponent>();
+            //
+            //     skyAtmosphereSystem->Render(
+            //         Service::EditorService::Instance().getView(),
+            //         Service::EditorService::Instance().getProjection(),
+            //         transform->position,
+            //         glm::vec3(0, 1, -1)
+            //     );
+            // }
+            //
+            // glEnable(GL_DEPTH_TEST);
 
-		if (renderInFrameBuffer && frameBuffer) {
-			frameBuffer->Render(renderScene);
-			frameBuffer->BlitToTexture();
-		}
-		else {
-			renderScene();
-		}
-	}
+            if (currentWorld) {
+                auto currentWorldPath = AppContext::Instance().GetCurrentWorld();
 
-	void Dispose() {
-		frameBuffer.reset();
-		renderSystem.reset();
-		cameraController.reset();
-	}
+                if (physicsSysyem) {
+                    physicsSysyem->Step(&currentWorldPath, deltaTime);
+                }
 
-	bool renderInFrameBuffer = false;
-	bool isEditMode = false;
+                if (renderSystem) {
+                    renderSystem->Render(&currentWorldPath, WindowService::getInstance()->getWidth(),
+                                         WindowService::getInstance()->getHeight());
+                }
 
-	std::shared_ptr<World> currentWorld;
-	std::shared_ptr<Entity::Entity> cameraEntity;
-	std::unique_ptr<System::RenderSystem> renderSystem;
-	std::shared_ptr<System::PhysicsSystem> physicsSysyem;
-	std::shared_ptr<System::CameraControllerSystem> cameraController;
-	std::shared_ptr<System::TerrainSystem> terrainSystem;
-	std::shared_ptr<System::SkyAtmosphereSystem> skyAtmosphereSystem;
-	std::unique_ptr<FrameBuffer> frameBuffer;
-	std::string projectPath;
+                /*if (terrainSystem)
+                {
+                    glm::vec3 camPos = cameraEntity->GetComponent<Component::TransformComponent>()->position;
+                    terrainSystem->Render(Service::EditorService::Instance().getView(), Service::EditorService::Instance().getProjection(), camPos);
+                }*/
+            }
+        };
+
+        if (renderInFrameBuffer && frameBuffer) {
+            frameBuffer->Render(renderScene);
+            frameBuffer->BlitToTexture();
+        } else {
+            renderScene();
+        }
+    }
+
+    void Dispose() {
+        frameBuffer.reset();
+        renderSystem.reset();
+        cameraController.reset();
+    }
+
+    bool renderInFrameBuffer = false;
+    bool isEditMode = false;
+
+    std::shared_ptr<World> currentWorld;
+    std::shared_ptr<Entity::Entity> cameraEntity;
+    std::unique_ptr<System::RenderSystem> renderSystem;
+    std::shared_ptr<System::PhysicsSystem> physicsSysyem;
+    std::shared_ptr<System::CameraControllerSystem> cameraController;
+    std::shared_ptr<System::TerrainSystem> terrainSystem;
+    std::shared_ptr<System::SkyAtmosphereSystem> skyAtmosphereSystem;
+    std::unique_ptr<FrameBuffer> frameBuffer;
+    std::string projectPath;
 };
 
 #endif //WORLDMANAGER_HPP

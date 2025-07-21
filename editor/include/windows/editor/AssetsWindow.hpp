@@ -21,7 +21,7 @@
 #include "esc/entity/Entity.hpp"
 #include "esc/component/MaterialComponent.hpp"
 #include "service/EditorService.hpp"
-#include "MaterialEditorWindow.hpp"
+
 #include "gui/texture/TextureManager.hpp"
 #include "service/EntityService.hpp"
 
@@ -46,8 +46,6 @@ public:
 						currentFolder = newPath;
 					}
 				);
-
-
 				std::vector<Model::AssetItem> allAssets = Service::AssetsService::Instance().getAssets();
 				std::vector<Model::AssetItem> assetItems;
 
@@ -99,7 +97,7 @@ public:
 				}
 
 				ImVec2 iconSize(64, 64);
-				float padding = 16.0f;
+				float padding = 0.0f;
 				float cellWidth = iconSize.x + padding;
 				float availWidth = ImGui::GetContentRegionAvail().x;
 				int columns = std::max(1, int(availWidth / cellWidth));
@@ -164,7 +162,6 @@ public:
 
 
 					}
-
 					if (assetItems[i].type == Model::AssetType::HightMap)
 					{
 
@@ -205,11 +202,10 @@ public:
 					}
 
 					ImGui::EndGroup();
+					ImGui::PopID();
 
 					if ((i + 1) % columns != 0)
 						ImGui::SameLine();
-
-					ImGui::PopID();
 				}
 
 			}

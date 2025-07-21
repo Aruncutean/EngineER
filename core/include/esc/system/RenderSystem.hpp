@@ -16,18 +16,16 @@
 #include "service/EntityService.hpp"
 
 namespace System {
-
     class RenderSystem {
     public:
         std::shared_ptr<Entity::Entity> cameraEntity;
 
-        RenderSystem() :
-            cameraSystem(std::make_unique<CameraSystem>()),
-            lightProcessor(std::make_unique<Process::LightProcessor>()),
-            renderableProcessor(std::make_unique<RenderableProcessor>()) {
+        RenderSystem() : cameraSystem(std::make_unique<CameraSystem>()),
+                         lightProcessor(std::make_unique<Process::LightProcessor>()),
+                         renderableProcessor(std::make_unique<RenderableProcessor>()) {
         }
 
-        void Render(World* scene, int width, int height) {
+        void Render(World *scene, int width, int height) {
             if (!cameraEntity)
                 return;
 
@@ -37,8 +35,6 @@ namespace System {
 
             if (!camera || !transform)
                 return;
-
-
 
             glm::mat4 view = cameraSystem->GetViewMatrix(*transform, *camera);
             glm::mat4 projection = cameraSystem->GetProjectionMatrix(*camera, static_cast<float>(width) / height);
@@ -50,12 +46,12 @@ namespace System {
             auto renderables = renderableProcessor->GetRenderables(*scene);
 
 
-            for (const auto& entity : renderables) {
+            lightProcessor->RenderLights(lights, view, projection,
+                                         transform->position, camera->up, camera->front);
+
+            for (const auto &entity: renderables) {
                 renderableProcessor->RenderEntity(entity, lights, view, projection, *transform);
             }
-
-
-
         }
 
     private:
@@ -63,7 +59,6 @@ namespace System {
         std::unique_ptr<Process::LightProcessor> lightProcessor;
         std::unique_ptr<RenderableProcessor> renderableProcessor;
     };
-
 }
 
 #endif //RENDERSYSTEM_HPP

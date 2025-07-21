@@ -5,6 +5,9 @@
 #ifndef COMPONENTBASE_HPP
 #define COMPONENTBASE_HPP
 
+#include <boost/property_tree/ptree.hpp>
+
+
 namespace Component {
 
     class ComponentBase

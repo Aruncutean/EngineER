@@ -1,0 +1,19 @@
+{
+    "$type": "phong",
+    "shininess": "32",
+    "ambient": {
+        "Color": "#843b3b",
+        "TexturePath": "",
+        "IsTexture": "false"
+    },
+    "diffuse": {
+        "Color": "#ffffff",
+        "TexturePath": "",
+        "IsTexture": "false"
+    },
+    "specular": {
+        "Color": "#ffffff",
+        "TexturePath": "",
+        "IsTexture": "false"
+    }
+}

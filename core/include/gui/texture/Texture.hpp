@@ -21,13 +21,12 @@ public:
 
 		}
 
-		// Convertim la format RGBA pentru OpenGL
 		SDL_Surface* formatted = SDL_ConvertSurface(surface, SDL_PIXELFORMAT_RGBA32);
 		SDL_DestroySurface(surface);
 		if (!formatted) {
 			throw std::runtime_error("Failed to convert surface format: " + std::string(SDL_GetError()));
 		}
-
+		FlipSurfaceVertically(formatted);
 		GLuint texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
@@ -47,6 +46,24 @@ public:
 		SDL_DestroySurface(formatted);
 
 		return texture;
+	}
+
+
+	static void FlipSurfaceVertically(SDL_Surface* surface) {
+		int pitch = surface->pitch;
+		char* temp = new char[pitch];
+		char* pixels = static_cast<char*>(surface->pixels);
+
+		for (int i = 0; i < surface->h / 2; ++i) {
+			char* row1 = pixels + i * pitch;
+			char* row2 = pixels + (surface->h - i - 1) * pitch;
+
+			memcpy(temp, row1, pitch);
+			memcpy(row1, row2, pitch);
+			memcpy(row2, temp, pitch);
+		}
+
+		delete[] temp;
 	}
 
 	static GLuint LoadHDRTexture(const std::string& path) {

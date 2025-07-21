@@ -38,10 +38,6 @@ namespace Physics {
 
             return phys;
         }
-
-
-
-
     };
 
 

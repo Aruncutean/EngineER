@@ -8,22 +8,24 @@
 
 class WindowService {
 private:
-    static WindowService* instance;
+    static WindowService *instance;
     static std::mutex mtx;
 
     int width = 1200;
     int height = 600;
     float deltaTime = 0.0f;
 
-    WindowService() {}
+
+
+    WindowService() {
+    }
 
 public:
+    WindowService(const WindowService &) = delete;
 
+    WindowService &operator=(const WindowService &) = delete;
 
-    WindowService(const WindowService&) = delete;
-    WindowService& operator=(const WindowService&) = delete;
-
-    static WindowService* getInstance() {
+    static WindowService *getInstance() {
         std::lock_guard<std::mutex> lock(mtx);
         if (instance == nullptr) {
             instance = new WindowService();
@@ -55,6 +57,8 @@ public:
     float getDeltaTime() {
         return deltaTime;
     }
+
+    bool IsBockingSpace = false;
 };
 
 

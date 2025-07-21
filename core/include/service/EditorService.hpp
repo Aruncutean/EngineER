@@ -18,7 +18,7 @@
 namespace Service {
     class EditorService {
     public:
-        static EditorService& Instance() {
+        static EditorService &Instance() {
             static EditorService instance;
             return instance;
         }
@@ -26,6 +26,7 @@ namespace Service {
         glm::mat4 getView() {
             return view;
         }
+
         glm::mat4 getProjection() {
             return projection;
         }
@@ -33,47 +34,67 @@ namespace Service {
         void setView(glm::mat4 v) {
             view = v;
         }
+
         void setProjection(glm::mat4 p) {
             projection = p;
         }
 
-        Entity::Entity* GetSelectedEntity() {
+        Entity::Entity *GetSelectedEntity() {
             return entity;
         }
 
-        void setSelectedEntity(Entity::Entity* e) {
+        void setSelectedEntity(Entity::Entity *e) {
             entity = e;
+            if (newEntity) {
+                newEntity(e);
+            }
         }
 
-        Entity::Entity* getEditorCamera() {
+        Entity::Entity *getEditorCamera() {
             return editorCamera;
         }
 
-        void setEditorCamera(Entity::Entity* e) {
+        void setEditorCamera(Entity::Entity *e) {
             editorCamera = e;
         }
 
-        Model::AssetItem* getMaterialSelected() {
+        Model::AssetItem *getMaterialSelected() {
             return material;
         }
 
-        void setMaterialSelected(Model::AssetItem* m) {
-            material = new Model::AssetItem(*m);;
+        void setMaterialSelected(Model::AssetItem *m) {
+            material = new Model::AssetItem(*m);
+            for (const auto &callback: materialCallbacks) {
+                callback(material);
+            }
         }
 
+        void setNewEntityCallback(const std::function<void(Entity::Entity *)> &callback) {
+            newEntity = callback;
+        }
+
+        void addMaterialCallback(const std::function<void(Model::AssetItem *)> &callback) {
+            materialCallbacks.push_back(callback);
+        }
 
     private:
-        EditorService() : view(glm::mat4(1.0f)), projection(glm::mat4(1.0f)) {}
+        EditorService() : view(glm::mat4(1.0f)), projection(glm::mat4(1.0f)) {
+        }
+
         ~EditorService() = default;
 
-        EditorService(const EditorService&) = delete;
-        EditorService& operator=(const EditorService&) = delete;
+        EditorService(const EditorService &) = delete;
+
+        EditorService &operator=(const EditorService &) = delete;
 
         glm::mat4 view;
         glm::mat4 projection;
-        Entity::Entity* entity = nullptr;
-        Entity::Entity* editorCamera = nullptr;
-        Model::AssetItem* material = nullptr;
+        Entity::Entity *entity = nullptr;
+        Entity::Entity *editorCamera = nullptr;
+        Model::AssetItem *material = nullptr;
+        std::function<void(Entity::Entity *)> newEntity = nullptr;
+
+        std::vector<std::function<void(Model::AssetItem *)> > materialCallbacks;
     };
 }
 

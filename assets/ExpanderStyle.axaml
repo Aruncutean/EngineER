@@ -1,0 +1,101 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+	<Styles.Resources>
+		<x:Double x:Key="ExpanderMinHeight">24</x:Double>
+	</Styles.Resources>
+
+	<Design.PreviewWith>
+		<Border Padding="20">
+			<!-- Add Controls for Previewer Here -->
+		</Border>
+	</Design.PreviewWith>
+	<Style Selector="Expander">
+
+		<Setter Property="Template">
+			<ControlTemplate>
+				<Border BorderBrush="Transparent"
+						Background="#3F3F3F"
+		                CornerRadius="8"
+						Padding="0"
+						>
+					<StackPanel>
+						<!-- HEADER -->
+						<StackPanel >
+							<Grid ColumnDefinitions="25,*" Margin="0">
+								<ToggleButton
+									Grid.Column="0"
+									Margin="0"
+									Padding="5,5,0,5"
+									IsChecked="{TemplateBinding IsExpanded, Mode=TwoWay}"
+									Background="Transparent"
+									Focusable="False"
+									>
+
+									<StackPanel>
+										<Image
+											Classes="audio-mute"
+											Source="avares://EditorAvalonia/assets/angle-small-right.png"
+											Stretch="Uniform"
+											/>
+										<Image
+											Classes="audio-on"
+											Source="avares://EditorAvalonia/assets/angle-small-down.png"
+											Stretch="Uniform"
+										
+											/>
+									</StackPanel>
+									<ToggleButton.Styles>
+										<Style Selector="ToggleButton">
+											<Style Selector="^:checked /template/ ContentPresenter">
+												<Setter Property="Background" Value="Transparent"/>
+											</Style>
+											<Style Selector="^:unchecked /template/ ContentPresenter">
+												<Setter Property="Background" Value="Transparent"/>
+											</Style>
+											<Setter Property="Padding" Value="0"/>
+										</Style>
+										<Style Selector="ToggleButton Image.audio-on">
+											<Setter Property="IsVisible" Value="False"/>
+											<Setter Property="Height" Value="0"/>
+										</Style>
+										<Style Selector="ToggleButton:checked Image.audio-on">
+											<Setter Property="IsVisible" Value="True"/>
+											<Setter Property="Height" Value="15"/>
+										</Style>
+										<Style Selector="ToggleButton Image.audio-mute">
+											<Setter Property="IsVisible" Value="True"/>
+											<Setter Property="Height" Value="15"/>
+										</Style>
+										<Style Selector="ToggleButton:checked Image.audio-mute">
+											<Setter Property="IsVisible" Value="False"/>
+											<Setter Property="Height" Value="0"/>
+
+										</Style>
+									</ToggleButton.Styles>
+								</ToggleButton>
+								<StackPanel
+									Grid.Column="1"
+									Orientation="Horizontal"
+									DockPanel.Dock="Left"
+										>
+									<ContentPresenter
+										Foreground="White"
+										FontSize="12"
+										Content="{TemplateBinding Header}"
+										VerticalAlignment="Center"
+										/>
+								</StackPanel>
+							</Grid>
+						</StackPanel>
+						<!-- CONTINUT -->
+						<ContentPresenter
+							Padding="20,0,20,20"			 
+							Content="{TemplateBinding Content}"
+							IsVisible="{TemplateBinding IsExpanded}"/>
+					</StackPanel>
+				</Border>
+			</ControlTemplate>
+		</Setter>
+	</Style>
+</Styles>

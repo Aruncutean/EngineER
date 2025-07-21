@@ -39,27 +39,6 @@ if(WIN32)
         link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/bullet3/lib/win64/release)
     endif()
 
-
-#    file(GLOB IMGUI_SRC
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include/*.cpp
-#    )
-#
-#    file(GLOB IMGUI_HEADERS
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include/*.h
-#    )
-#
-#    list(APPEND IMGUI_SRC
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include/backends/imgui_impl_sdl3.cpp
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include/backends/imgui_impl_opengl3.cpp
-#    )
-#
-#    add_library(imgui STATIC ${IMGUI_SRC} ${IMGUI_HEADERS}  )
-#
-#    target_include_directories(imgui PUBLIC
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include
-#            ${CMAKE_CURRENT_SOURCE_DIR}/../external/imgui/include/backends
-#    )
-
 elseif(APPLE)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/sdl3/lib/macos/x64-osx)
     link_directories(${CMAKE_CURRENT_SOURCE_DIR}/../external/glad/lib/macos/x64-osx)
@@ -187,6 +166,5 @@ add_custom_command(TARGET Editor POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_if_different
         $<$<CONFIG:Debug>:${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/debug/libfbxsdk.dll>
         $<$<CONFIG:Release>:${CMAKE_CURRENT_SOURCE_DIR}/../external/fbx/lib/2020/win64/release/libfbxsdk.dll>
-
         $<TARGET_FILE_DIR:Editor>
 )
